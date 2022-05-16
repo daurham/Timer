@@ -24,7 +24,6 @@ node backend_scripts/Node_Timer.js 10 minutes
 syntax: node__[path/]fileName.js [time] [timeType] [increment?] [showLocalTime?] [fontDesign?]
 >valid timeTypes: _seconds sec s, minutes min m, hours hr h, days dy d_
 
->valid timeTypes: _seconds, minutes, hours, days_
 
 ---
 ### Option b).
