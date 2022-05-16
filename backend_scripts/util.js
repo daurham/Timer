@@ -1,11 +1,13 @@
 const audio = require('./audio-player');
 const dateTime = require('@js-temporal/polyfill');
+const chalk = require('chalk');
+
 
 let localTime = () => dateTime.Temporal.Now.plainTimeISO().toLocaleString();
 
 const getTimeRemaining = (totalSec) => {
-  if (totalSec < 60 && totalSec > 9) return `00:${totalSec} | @`;
-  if (totalSec < 10) return `00:0${totalSec} | @`;
+  if (totalSec < 60 && totalSec > 9) return `00:${totalSec}`;
+  if (totalSec < 10) return `00:0${totalSec}`;
   let totalMin = Math.floor(totalSec / 60);
   let totalHr = Math.floor(totalMin / 60);
   let totalDay = Math.floor(totalHr / 24);
@@ -15,30 +17,50 @@ const getTimeRemaining = (totalSec) => {
   let currentDay = totalDay > 0 ? Math.floor(totalDay) : false;
   if (currentSec < 10) currentSec = `0${currentSec}`;
   if (currentMin < 10) currentMin = `0${currentMin}`;
-  if (currentDay) return `${currentDay}:${currentHr}:${currentMin}:${currentSec} | @`;
-  return `${currentHr}:${currentMin}:${currentSec} | @`;
+  if (currentDay) return `${currentDay}:${currentHr}:${currentMin}:${currentSec}`;
+  return `${currentHr}:${currentMin}:${currentSec}`;
 };
 
 const getTotalSeconds = (settings) => { 
-  console.log(settings)
+  console.log(chalk.underline(`User Settings:\n`), settings, '_______________')
   if (settings.durationType === 'seconds') return settings.timerDuration;
   if (settings.durationType === 'minutes') return settings.timerDuration * 60;
   if (settings.durationType === 'hours') return settings.timerDuration * 60 * 60;
   if (settings.durationType === 'days') return settings.timerDuration * 60 * 60 * 24;
 };
 
-const App = (audioFile, sec, increments = 1) => {
+const getType = (val) => {
+  val = val.toLowerCase();
+  if (val === 's' || val === 'sec' || val === 'second' || val === 'seconds') return 'seconds'; 
+  if (val === 'm' || val === 'min' || val === 'minute' || val === 'minutes') return 'minutes'; 
+  if (val === 'h' || val === 'hr' || val === 'hour' || val === 'hours') return 'hours'; 
+  if (val === 'd' || val === 'dy' || val === 'day' || val === 'days') return 'days'; 
+};
+
+const getIncrement = (val) => {
+  if (val < 1 ) return null;
+  if (val > 0) return val;
+};
+
+const getShow = (val) => {
+  if (val.slice(1) === 't') return true;
+  return false;
+};
+
+const getDesign = (val) => val; // add new functionality later to handle range of inputs 
+
+const App = (audioFile, sec, increments = 1, time = false, color = 'blue')  => {
   let alarm;
   if (audioFile) alarm = audio.load(`./assets/${audioFile}`);
   let intervalObj = setInterval(() => {
     sec -= 1;
-    if (sec % increments === 0) console.log('Remaining Time:', getTimeRemaining(sec), localTime());
+    if (sec % increments === 0) console.log(chalk[color](`  ${getTimeRemaining(sec)} ${time ? (' ___________________  ' + localTime()) : ''}`));
     if (sec <= 0) {
-      console.log(`Times up!`);
+      console.log(chalk.bold(`Times up!`));
       clearInterval(intervalObj);
       if (audioFile) alarm.then(audio.play);
     }
   }, 1000);
 };
 
-module.exports = { App, getTotalSeconds };
+module.exports = { App, getTotalSeconds, getType, getIncrement, getShow, getDesign };
