@@ -2,10 +2,10 @@ const getTotalSeconds = require('./util').getTotalSeconds;
 const run_Timer = require('./util').App;
 
 let time = process.argv[2] || null;
-let type =  require('./util').getType(process.argv[3]) || null;
-let increment = require('./util').getIncrement(process.argv[4]) || null;
+let type =  require('./util').getType(process.argv[3]);
+let increment = require('./util').getIncrement(process.argv[4]);
 let show = require('./util').getShow((process.argv[5]));
-let design = require('./util').getDesign(process.argv[6]) || null;
+let design = require('./util').getDesign(process.argv[6]);
 //////////^ignore^///////////
 
 

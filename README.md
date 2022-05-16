@@ -34,7 +34,16 @@ _Create an alias in your .bashrc or .profile bash file, found in the terminal's 
 alias timer='cd; cd Desktop/Practice/timerApp; node backend_scripts/Node_Timer.js'
 ```
 3. Launch new terminal
-4. run:
+4. run in a similar syntax:
+```
+timer 1 hr
+```
+```
+timer 30 sec 2 
+```
+```
+timer 10
+```
 ```
 timer 5 m 1 t green
 ```

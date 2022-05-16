@@ -30,24 +30,25 @@ const getTotalSeconds = (settings) => {
 };
 
 const getType = (val) => {
-  val = val.toLowerCase();
+  val = String(val).toLowerCase();
   if (val === 's' || val === 'sec' || val === 'second' || val === 'seconds') return 'seconds'; 
   if (val === 'm' || val === 'min' || val === 'minute' || val === 'minutes') return 'minutes'; 
   if (val === 'h' || val === 'hr' || val === 'hour' || val === 'hours') return 'hours'; 
   if (val === 'd' || val === 'dy' || val === 'day' || val === 'days') return 'days'; 
+  return null;
 };
 
 const getIncrement = (val) => {
-  if (val < 1 ) return null;
-  if (val > 0) return val;
+  if (val > 0) return val; 
+  return null;
 };
 
 const getShow = (val) => {
-  if (val.slice(1) === 't') return true;
+  if (String(val).slice(1) === 't') return true;
   return false;
 };
 
-const getDesign = (val) => val; // add new functionality later to handle range of inputs 
+const getDesign = (val) => val || null; // add new functionality later to handle range of inputs 
 
 const App = (audioFile, sec, increments = 1, time = false, color = 'blue')  => {
   let alarm;
