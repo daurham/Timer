@@ -4,9 +4,10 @@ const run_Timer = require('./util').App;
 let time = process.argv[2] || null;
 let type =  require('./util').getType(process.argv[3]);
 let increment = require('./util').getIncrement(process.argv[4]);
-let show = require('./util').showLocalTime((process.argv[5]));
-let color = require('./util').getColor(process.argv[6]);
+let color = require('./util').getColor(process.argv[5]);
+let show = require('./util').showLocalTime((process.argv[6]));
 //////////^ignore^///////////
+
 
 
 // Only edit these 6 rows:
