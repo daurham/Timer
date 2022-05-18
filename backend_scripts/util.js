@@ -22,7 +22,7 @@ const getTimeRemaining = (totalSec) => {
 };
 
 const getTotalSeconds = (settings) => {
-  console.log(chalk.underline(`User Settings:\n`), settings, '\n______________'); // Log the USER_SETTINGS
+  console.log(chalk.underline(`User Settings:\n`), settings, '\n_______________'); // Log the USER_SETTINGS
   if (settings.durationType === 'seconds') return settings.timerDuration;
   if (settings.durationType === 'minutes') return settings.timerDuration * 60;
   if (settings.durationType === 'hours') return settings.timerDuration * 60 * 60;
