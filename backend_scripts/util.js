@@ -22,7 +22,7 @@ const getTimeRemaining = (totalSec) => {
 };
 
 const getTotalSeconds = (settings) => { 
-  console.log(chalk.underline(`User Settings:\n`), settings, '_______________')
+  console.log(chalk.underline(`User Settings:\n`), settings, '\n______________')
   if (settings.durationType === 'seconds') return settings.timerDuration;
   if (settings.durationType === 'minutes') return settings.timerDuration * 60;
   if (settings.durationType === 'hours') return settings.timerDuration * 60 * 60;
@@ -51,15 +51,18 @@ const getShow = (val) => {
 const getDesign = (val) => val || null; // add new functionality later to handle range of inputs 
 
 const App = (audioFile, sec, increments = 1, time = false, color = 'blue')  => {
-  let alarm;
-  if (audioFile) alarm = audio.load(`./assets/${audioFile}`);
+  let startupSound;
+  let alarmSound;
+  if (audioFile[0]) startupSound = audio.load(`./assets/${audioFile[0]}`);
+  if (audioFile[1]) alarmSound = audio.load(`./assets/${audioFile[1]}`);
+  if (startupSound) startupSound.then(audio.play);
   let intervalObj = setInterval(() => {
     sec -= 1;
-    if (sec % increments === 0) console.log(chalk[color](`  ${getTimeRemaining(sec)} ${time ? (' ___________________  ' + localTime()) : ''}`));
+    if (sec % increments === 0) console.log(chalk[color](`    ${getTimeRemaining(sec)} ${time ? (' ___________________  ' + localTime()) : ''}`));
     if (sec <= 0) {
-      console.log(chalk.bold(`Times up!`));
+      console.log(chalk.bold(`  Times up!`));
       clearInterval(intervalObj);
-      if (audioFile) alarm.then(audio.play);
+      if (audioFile[1]) alarmSound.then(audio.play);
     }
   }, 1000);
 };

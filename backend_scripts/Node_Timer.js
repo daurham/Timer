@@ -15,8 +15,8 @@ const USER_SETTINGS = {
   timerDuration: time || 10,                        
     // seconds, minutes, hours or days 
   durationType: type || 'minutes',                 
-    // Filename.mp3, Filename.wav or null 
-  audioFile: 'stop-it-now-movie-vocal.wav',
+    // Filename.mp3, Filename.wav or null | [startingSound, endingSound]
+  audioFile: ['AllRight.. Run it.mp3', 'stop-it-now-movie-vocal.wav'],
     // Log every n second increments
   increment: increment || 1,
     // Log current time?
