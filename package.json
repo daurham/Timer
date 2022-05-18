@@ -15,7 +15,7 @@
     "@js-temporal/polyfill": "^0.4.1",
     "audio-loader": "^1.0.3",
     "audio-play": "^2.3.1",
-    "minimist": "^1.2.6",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "speaker": "^0.5.4"
   }
 }
