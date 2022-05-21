@@ -22,7 +22,7 @@ const getTimeRemaining = (totalSec) => {
 };
 
 const getTotalSeconds = (settings) => {
-  console.log(chalk.underline(`User Settings:\n`), settings, '\n_______________'); // Log the USER_SETTINGS
+  console.log(chalk.underline(`User Settings:\n`), settings, '\n_______________'); // Initially logs the USER_SETTINGS
   if (settings.durationType === 'seconds') return settings.timerDuration;
   if (settings.durationType === 'minutes') return settings.timerDuration * 60;
   if (settings.durationType === 'hours') return settings.timerDuration * 60 * 60;
@@ -44,7 +44,7 @@ const getIncrement = (val) => {
 };
 
 const showLocalTime = (val) => {
-  if (String(val).slice(1) === 't') return true;
+  if (String(val).slice(0, 1) === 't') return true;
   return false;
 };
 
