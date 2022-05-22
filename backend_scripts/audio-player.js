@@ -15,7 +15,7 @@ const getAudioOS = () => {
       play = require('play-sound')(); // https://www.npmjs.com/package/play-sound
       play.OS = OS;
     } else {
-      console.log('I am Linux')
+      OS = 'linux';
       play = require('audio-play'); // https://www.npmjs.com/package/audio-play
       load = require('audio-loader'); // https://www.npmjs.com/package/audio-loader
     }
@@ -31,6 +31,5 @@ const getAudioOS = () => {
 };
 
 getAudioOS();
-
 if (OS === 'linux') module.exports = { load, play, OS };
 if (OS !== 'linux') module.exports = play;

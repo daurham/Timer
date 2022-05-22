@@ -3,6 +3,7 @@ const dateTime = require('@js-temporal/polyfill');
 const chalk = require('chalk');
 
 const localTime = () => dateTime.Temporal.Now.plainTimeISO().toLocaleString();
+let alarmSound;
 
 const getTimeRemaining = (totalSec) => {
   if (totalSec < 60 && totalSec > 9) return `00:${totalSec}`;
@@ -11,7 +12,6 @@ const getTimeRemaining = (totalSec) => {
   let totalHr = Math.floor(totalMin / 60);
   let totalDay = Math.floor(totalHr / 24);
   let currentSec = Math.floor(totalSec % 60);
-  console.log(totalSec, currentSec, totalMin, totalHr, totalDay);
   let currentMin = totalMin > 60 ? Math.floor(totalMin % 60) : totalMin;
   let currentHr = totalHr >= 24 ? Math.floor(totalHr % 24) : totalHr;
   let currentDay = totalDay > 0 ? Math.floor(totalDay) : false;
@@ -55,15 +55,14 @@ const getColor = (val) => val || null; // add new functionality later to handle 
 
 const playSound = (audioFile, initial = false) => {
   if (initial) {
-    let alarmSound;
     if (audioFile[0] && audio.OS === 'linux') audio.load(`./assets/${audioFile[0]}`).then(buffer => audio.play(buffer)); // load ans play startup sound // linux
-    if (audioFile[-1] && audio.OS === 'linux') alarmSound = audio.load(`./assets/${audioFile[-1]}`); // load alarm sound // linux
+    if (audioFile[audioFile.length - 1] && audio.OS === 'linux') alarmSound = audio.load(`./assets/${audioFile[audioFile.length - 1]}`); // load alarm sound // linux
     if (audio.OS === 'win32') audio.play('assets/' + audioFile[0]); // play startup sound // windows
     if (audio.OS === 'darwin') audio.play('assets/' + audioFile[0]); // play startup sound // mac
   } else {
-    if (audioFile[-1] && audio.linux) alarmSound.then(buffer => audio.play(buffer)); // play alarm sound // linux
-    if (audio.OS === 'win32') audio.play('assets/' + audioFile[-1]); // play alarm sound // windows
-    if (audio.OS === 'darwin') audio.play('assets/' + audioFile[-1]); // play alarm sound // mac
+    if (audioFile[audioFile.length - 1] && audio.OS === 'linux') alarmSound.then(buffer => audio.play(buffer)); // play alarm sound // linux
+    if (audio.OS === 'win32') audio.play('assets/' + audioFile[audioFile.length - 1]); // play alarm sound // windows
+    if (audio.OS === 'darwin') audio.play('assets/' + audioFile[audioFile.length - 1]); // play alarm sound // mac
   }
 };
 
