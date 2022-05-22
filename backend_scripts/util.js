@@ -2,8 +2,7 @@ const audio = require('./audio-player');
 const dateTime = require('@js-temporal/polyfill');
 const chalk = require('chalk');
 
-
-let localTime = () => dateTime.Temporal.Now.plainTimeISO().toLocaleString();
+const localTime = () => dateTime.Temporal.Now.plainTimeISO().toLocaleString();
 
 const getTimeRemaining = (totalSec) => {
   if (totalSec < 60 && totalSec > 9) return `00:${totalSec}`;
@@ -12,12 +11,16 @@ const getTimeRemaining = (totalSec) => {
   let totalHr = Math.floor(totalMin / 60);
   let totalDay = Math.floor(totalHr / 24);
   let currentSec = Math.floor(totalSec % 60);
+  console.log(totalSec, currentSec, totalMin, totalHr, totalDay);
   let currentMin = totalMin > 60 ? Math.floor(totalMin % 60) : totalMin;
-  let currentHr = totalHr > 24 ? Math.floor(totalHr % 24) : totalHr;
+  let currentHr = totalHr >= 24 ? Math.floor(totalHr % 24) : totalHr;
   let currentDay = totalDay > 0 ? Math.floor(totalDay) : false;
   if (currentSec < 10) currentSec = `0${currentSec}`;
   if (currentMin < 10) currentMin = `0${currentMin}`;
-  if (currentDay) return `${currentDay}:${currentHr}:${currentMin}:${currentSec}`;
+  if (currentHr === 0 && currentDay) return `${currentDay}:0${currentHr}:${currentMin}:${currentSec}`;
+  if (currentHr === 0 && !currentDay) return `${currentMin}:${currentSec}`;
+  if (currentDay && currentHr >= 10) return `${currentDay}:${currentHr}:${currentMin}:${currentSec}`;
+  if (currentDay && currentHr < 10) return `${currentDay}:0${currentHr}:${currentMin}:${currentSec}`;
   return `${currentHr}:${currentMin}:${currentSec}`;
 };
 
@@ -50,19 +53,29 @@ const showLocalTime = (val) => {
 
 const getColor = (val) => val || null; // add new functionality later to handle range of inputs
 
+const playSound = (audioFile, initial = false) => {
+  if (initial) {
+    let alarmSound;
+    if (audioFile[0] && audio.OS === 'linux') audio.load(`./assets/${audioFile[0]}`).then(buffer => audio.play(buffer)); // load ans play startup sound // linux
+    if (audioFile[-1] && audio.OS === 'linux') alarmSound = audio.load(`./assets/${audioFile[-1]}`); // load alarm sound // linux
+    if (audio.OS === 'win32') audio.play('assets/' + audioFile[0]); // play startup sound // windows
+    if (audio.OS === 'darwin') audio.play('assets/' + audioFile[0]); // play startup sound // mac
+  } else {
+    if (audioFile[-1] && audio.linux) alarmSound.then(buffer => audio.play(buffer)); // play alarm sound // linux
+    if (audio.OS === 'win32') audio.play('assets/' + audioFile[-1]); // play alarm sound // windows
+    if (audio.OS === 'darwin') audio.play('assets/' + audioFile[-1]); // play alarm sound // mac
+  }
+};
+
 const App = (audioFile, sec, increments = 1, color = 'blue', time = false)  => {
-  let startupSound;
-  let alarmSound;
-  if (audioFile[0]) startupSound = audio.load(`./assets/${audioFile[0]}`); // load startup sound
-  if (audioFile[1]) alarmSound = audio.load(`./assets/${audioFile[1]}`); // load alarm sound
-  if (startupSound) startupSound.then(buffer => audio.play(buffer), {device: 'hw:0,0'}); // play startup sound
-  let intervalObj = setInterval(() => {
+  playSound(audioFile, true); // play initial sound
+  let intervalObj = setInterval(() => { // begin interval countdown
     sec -= 1;
-    if (sec % increments === 0) console.log(chalk[color](`    ${getTimeRemaining(sec)} ${time ? (' ___________________  ' + localTime()) : ''}`));
-    if (sec <= 0) {
+    if (sec % increments === 0) console.log(chalk[color](`    ${getTimeRemaining(sec)} ${time ? (' ___________________  ' + localTime()) : ''}`));  // check increment to log current time
+    if (sec <= 0) { // check if remaining time reached 0
       console.log(chalk.bold(`  Times up!`));
       clearInterval(intervalObj);
-      if (audioFile[1]) alarmSound.then(buffer => audio.play(buffer), {device: 'hw:0,0'}); // play alarm sound
+      playSound(audioFile);
     }
   }, 1000);
 };
