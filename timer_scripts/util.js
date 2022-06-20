@@ -11,7 +11,7 @@ const getTimeRemaining = (totalSec) => {
   let totalHr = Math.floor(totalMin / 60);
   let totalDay = Math.floor(totalHr / 24);
   let currentSec = Math.floor(totalSec % 60);
-  console.log(totalSec, currentSec, totalMin, totalHr, totalDay);
+  // console.log(totalSec, currentSec, totalMin, totalHr, totalDay); // Testing
   let currentMin = totalMin > 60 ? Math.floor(totalMin % 60) : totalMin;
   let currentHr = totalHr >= 24 ? Math.floor(totalHr % 24) : totalHr;
   let currentDay = totalDay > 0 ? Math.floor(totalDay) : false;
