@@ -1,4 +1,4 @@
-# Terminal Timer
+# Terminal Timer ⏲
 A simple timer that runs in the terminal. Made with timeboxing in mind, but can be used for anything. With sound capabilities, enables a starting sound and ending sound to go off along side the timer.
 
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
