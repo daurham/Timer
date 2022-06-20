@@ -1,6 +1,10 @@
-# TimerApp
+# Terminal Timer
 
-## Node Timer
+![](https://media.giphy.com/media/ptAFyxqzfSBs28tDS4/giphy.gif)
+![](https://media.giphy.com/media/sfiiPmUuRtPTvs7WeY/giphy.gif)
+
+
+## Terminal Timer
 1. Place the audiofile you wish to play when the countdown hits 0, inside the assets folder ( .wav or .mp3 ).
 2. Open Terminal_Timer.js and fill out the USER_SETTINGS (optional)
 3. run:
@@ -21,7 +25,7 @@ _Get the best use out of it, use easily in terminal wherever_
 ```
 node timer_scripts/Terminal_Timer.js 10 minutes
 ```
-syntax: node__[path/]fileName.js [time] [timeType] [increment?] [fontDesign?] [showLocalTime?]
+syntax: node [path/]fileName.js [time] [timeType] [increment?] [fontDesign?] [showLocalTime?]
 >valid timeTypes: _seconds sec s, minutes min m, hours hr h, days dy d_
 
 
@@ -36,12 +40,12 @@ _Create an alias in your .bashrc or .bash_profile file, found in the terminal's 
     - travels to the repo's root directory and
         - (cd path/to/repo;)
     - uses node to run the script:
-        - (node backend_scripts/Node_Timer.js)
+        - (node backend_scripts/Terminal_Timer.js)
 ``` bash
-alias timer='cd; cd Desktop/Practice/timerApp; node timer_scripts/Node_Timer.js'
+alias timer='cd; cd Desktop/Practice/timerApp; node timer_scripts/Terminal_Timer.js'
 ```
 
->alias aliasName='[go to initial terminal dir; go to repo dir root; use node to run backend_scripts/Node_Timer.js]'
+>alias aliasName='[go to initial terminal dir; go to repo dir root; use node to run backend_scripts/Terminal_Timer.js]'
 
 4. Launch new terminal
 5. Run in a similar syntax:
@@ -59,7 +63,11 @@ timer 5 m 1 green true
 ```
 >syntax: aliasName [timeDuration] [timeType] [timeIncrements] [fontColor] [showLocalTime?]
 
-![]()
+![](https://media.giphy.com/media/7x7vp9yPVEnZGXWlzv/giphy.gif)
+![](https://media.giphy.com/media/nQAyLJXzeBaANxfyJa/giphy.gif)
+![](https://media.giphy.com/media/t0Ob0tLiWa6cHCHPCU/giphy.gif)
+![](https://media.giphy.com/media/KNNTUcZln6PLh5ntC7/giphy.gif)
+
 
 > Running "aliasName" defaults on:
 
