@@ -1,14 +1,10 @@
-# TimerApp
+# Terminal Timer
 
 ![](https://media.giphy.com/media/ptAFyxqzfSBs28tDS4/giphy.gif)
-![](https://media.giphy.com/media/7x7vp9yPVEnZGXWlzv/giphy.gif)
-![](https://media.giphy.com/media/SbnpCberLJWYpIMejP/giphy.gif)
-![](https://media.giphy.com/media/OI9PGbHdsxUgHv88XE/giphy.gif)
-![](https://media.giphy.com/media/nQAyLJXzeBaANxfyJa/giphy.gif)
-![]()
-![]()
+![](https://media.giphy.com/media/sfiiPmUuRtPTvs7WeY/giphy.gif)
 
-## Node Timer
+
+## Terminal Timer
 1. Place the audiofile you wish to play when the countdown hits 0, inside the assets folder ( .wav or .mp3 ).
 2. Open Node_Timer.js and fill out the USER_SETTINGS (optional)
 3. run:
@@ -67,6 +63,10 @@ timer 5 m 1 green true
 ```
 >syntax: aliasName [timeDuration] [timeType] [timeIncrements] [fontColor] [showLocalTime?]
 
+![](https://media.giphy.com/media/7x7vp9yPVEnZGXWlzv/giphy.gif)
+![](https://media.giphy.com/media/nQAyLJXzeBaANxfyJa/giphy.gif)
+![](https://media.giphy.com/media/t0Ob0tLiWa6cHCHPCU/giphy.gif)
+![](https://media.giphy.com/media/KNNTUcZln6PLh5ntC7/giphy.gif)
 
 
 > Running "aliasName" defaults on:
