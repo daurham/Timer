@@ -1,6 +1,6 @@
 {
   "name": "timerapp",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Timebox yourself with a simple timer.",
   "main": "timer_scripts/Node_Timer.js",
   "scripts": {
