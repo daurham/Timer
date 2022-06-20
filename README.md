@@ -2,7 +2,7 @@
 
 ## Node Timer
 1. Place the audiofile you wish to play when the countdown hits 0, inside the assets folder ( .wav or .mp3 ).
-2. Open Node_Timer.js and fill out the USER_SETTINGS (optional)
+2. Open Terminal_Timer.js and fill out the USER_SETTINGS (optional)
 3. run:
 ```
 npm i
@@ -19,7 +19,7 @@ _Get the best use out of it, use easily in terminal wherever_
 2. Open a fresh terminal
 3. run:
 ```
-node timer_scripts/Node_Timer.js 10 minutes
+node timer_scripts/Terminal_Timer.js 10 minutes
 ```
 syntax: node__[path/]fileName.js [time] [timeType] [increment?] [fontDesign?] [showLocalTime?]
 >valid timeTypes: _seconds sec s, minutes min m, hours hr h, days dy d_
@@ -75,5 +75,5 @@ aliasName 10 minutes 1 red false
     - Only WSL tested and it doesn't work there yet. (Cannot connect to Win Audio hardware from WSL)
 
 1. Simply import your audio files to the "assets" directory.
-2. In "Node_Timer.js", on line 20 replace your initial and/or ending sound file with the current string in its place.
+2. In "Terminal_Timer.js", on line 20 replace your initial and/or ending sound file with the current string in its place.
 3. As long as both new audio files are either _.mp3_ or _.wav_, you should be good to go!

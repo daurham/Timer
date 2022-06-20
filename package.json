@@ -2,9 +2,9 @@
   "name": "timerapp",
   "version": "2.0.1",
   "description": "Timebox yourself with a simple timer.",
-  "main": "timer_scripts/Node_Timer.js",
+  "main": "timer_scripts/Terminal_Timer.js",
   "scripts": {
-    "start": "nodemon timer_scripts/Node_Timer.js"
+    "start": "nodemon timer_scripts/Terminal_Timer.js"
   },
   "keywords": [
     "timer"

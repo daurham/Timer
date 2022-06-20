@@ -22,4 +22,4 @@ I just had the idea to make a timer that runs on a server! So I'll make both ver
 4. Install and use Nodemon to log the time.
 5. I decided to install audio-player and audio-loader, so I can run an audio file upon the timer going off.
 6. I also downloaded Temporal date/time lib so I can log the true time along side the countdown.
-7. I made my files as modular and user friendly as possible so the user can only focus on 1 page of inputs (Node_Timer.js).  
+7. I made my files as modular and user friendly as possible so the user can only focus on 1 page of inputs (Terminal_Timer.js).
