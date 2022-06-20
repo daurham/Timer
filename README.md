@@ -4,7 +4,7 @@
 ![](https://media.giphy.com/media/sfiiPmUuRtPTvs7WeY/giphy.gif)
 
 
-## Terminal Timer
+## Installing Terminal Timer
 1. Place the audiofile you wish to play when the countdown hits 0, inside the assets folder ( .wav or .mp3 ).
 2. Open Terminal_Timer.js and fill out the USER_SETTINGS (optional)
 3. run:
@@ -16,6 +16,7 @@ npm start
 ---
 ## Utility Setup (Recommended)
 _Get the best use out of it, use easily in terminal wherever_
+_FOR BASH TERMINAL USERS_
 
 ---
 ### Option a).
