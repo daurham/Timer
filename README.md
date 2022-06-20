@@ -1,4 +1,7 @@
 # Terminal Timer
+---
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Nodemon](https://img.shields.io/badge/nodemon-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
 ![](https://media.giphy.com/media/ptAFyxqzfSBs28tDS4/giphy.gif)
 ![](https://media.giphy.com/media/sfiiPmUuRtPTvs7WeY/giphy.gif)
@@ -86,3 +89,9 @@ aliasName 10 minutes 1 red false
 1. Simply import your audio files to the "assets" directory.
 2. In "Terminal_Timer.js", on line 20 replace your initial and/or ending sound file with the current string in its place.
 3. As long as both new audio files are either _.mp3_ or _.wav_, you should be good to go!
+
+
+
+---
+## Contact Info
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daurham) [![Instagram](https://img.shields.io/badge/Captain_Daurham-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/captain_daurham/) [![Twitter](https://img.shields.io/badge/daurham-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/daurham) [![YouTube](https://img.shields.io/badge/daurham-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/user/daurham) ![Gmail](https://img.shields.io/badge/Daurham95-D14836?style=for-the-badge&logo=gmail&logoColor=white)
