@@ -46,7 +46,7 @@ node timer_scripts/Terminal_Timer.js 10 minutes
 
 ---
 ### Option b).
-    #### _RECOMMENDED but only for bash terminal users_
+#### _RECOMMENDED but only for bash terminal users_
 
 1. Clone repo wherever you want.
 2. Install dependencies
