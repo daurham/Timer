@@ -12,6 +12,7 @@ const getTimeRemaining = (totalSec) => {
   let totalHr = Math.floor(totalMin / 60);
   let totalDay = Math.floor(totalHr / 24);
   let currentSec = Math.floor(totalSec % 60);
+  // console.log(totalSec, currentSec, totalMin, totalHr, totalDay); // Testing
   let currentMin = totalMin > 60 ? Math.floor(totalMin % 60) : totalMin;
   let currentHr = totalHr >= 24 ? Math.floor(totalHr % 24) : totalHr;
   let currentDay = totalDay > 0 ? Math.floor(totalDay) : false;
@@ -53,14 +54,13 @@ const showLocalTime = (val) => {
 
 const getColor = (val) => val || null; // add new functionality later to handle range of inputs
 
-const playSound = (audioFile, initial = false) => {
+const playSound = async (audioFile, initial = false) => {
   if (initial) {
-    if (audioFile[0] && audio.OS === 'linux') audio.load(`./assets/${audioFile[0]}`).then(buffer => audio.play(buffer)); // load ans play startup sound // linux
-    if (audioFile[audioFile.length - 1] && audio.OS === 'linux') alarmSound = audio.load(`./assets/${audioFile[audioFile.length - 1]}`); // load alarm sound // linux
+    if (audioFile[0] && audio.OS === 'linux') audio.load(`./assets/${audioFile[0]}`).then(buffer => audio.play(buffer)); // load and play startup sound // linux
     if (audio.OS === 'win32') audio.play('assets/' + audioFile[0]); // play startup sound // windows
     if (audio.OS === 'darwin') audio.play('assets/' + audioFile[0]); // play startup sound // mac
   } else {
-    if (audioFile[audioFile.length - 1] && audio.OS === 'linux') alarmSound.then(buffer => audio.play(buffer)); // play alarm sound // linux
+    if (audioFile[audioFile.length - 1] && audio.OS === 'linux') audio.load(`./assets/${audioFile[audioFile.length - 1]}`).then(buffer => audio.play(buffer)); // load and play alarm sound // linux
     if (audio.OS === 'win32') audio.play('assets/' + audioFile[audioFile.length - 1]); // play alarm sound // windows
     if (audio.OS === 'darwin') audio.play('assets/' + audioFile[audioFile.length - 1]); // play alarm sound // mac
   }
@@ -73,8 +73,8 @@ const App = (audioFile, sec, increments = 1, color = 'blue', time = false)  => {
     if (sec % increments === 0) console.log(chalk[color](`    ${getTimeRemaining(sec)} ${time ? (' ___________________  ' + localTime()) : ''}`));  // check increment to log current time
     if (sec <= 0) { // check if remaining time reached 0
       console.log(chalk.bold(`  Times up!`));
-      clearInterval(intervalObj);
       playSound(audioFile);
+      clearInterval(intervalObj);
     }
   }, 1000);
 };

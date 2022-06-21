@@ -17,7 +17,8 @@ const USER_SETTINGS = {
     // seconds, minutes, hours or days
   durationType: type || 'minutes',
     // Filename.mp3, Filename.wav or null // [startingSound, endingSound]
-  audioFile: ['AllRight.. Run it.mp3', 'stop-it-now-movie-vocal.wav'],
+  // audioFile: ['disarm-yourself_SW.wav', 'AllRight.. Run it.wav'],
+  audioFile: ['AllRight.. Run it.wav', 'disarm-yourself_SW.wav'],
     // Log every n second increments
   increment: increment || 1,
     // Color of font
