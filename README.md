@@ -54,11 +54,11 @@ node timer_scripts/Terminal_Timer.js 10 minutes
 npm install
 ```
 3. Create an alias at the bottom of your bash startup script (.bashrc or .bash_profile) that:
-    - resets the current directory
+    - a). resets the current directory
         - (cd;)
-    - travels to the repo's root directory and
+    - b). travels to the repo's root directory and
         - (cd path/to/repo;)
-    - uses node to run the script from root
+    - c). uses node to run the script from root
         - (node backend_scripts/Terminal_Timer.js)
 ``` bash
 alias timer='cd; cd Desktop/Applications/Timer; node timer_scripts/Terminal_Timer.js'
