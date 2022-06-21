@@ -24,7 +24,7 @@ npm start
 ```
 4. Get to work!!
 ---
-## Utility Setup (Recommended)
+## Utility Set up (Recommended)
 _Get the best use out of it, use easily in terminal wherever_
 
 ---
