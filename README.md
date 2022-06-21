@@ -6,7 +6,7 @@ A simple timer that runs in the terminal. Made with time boxing in mind, but can
 ![Bash](https://img.shields.io/badge/bash-gray?style=for-the-badge&logo=gnubash&logoColor=white)
 
 ![](https://media.giphy.com/media/ptAFyxqzfSBs28tDS4/giphy.gif)
-![](https://media.giphy.com/media/sfiiPmUuRtPTvs7WeY/giphy.gif)
+![](https://media.giphy.com/media/n5HeyjISjmh8Znzi2j/giphy.gif)
 
 
 ## Installing Terminal Timer
