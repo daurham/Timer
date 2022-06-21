@@ -68,12 +68,13 @@ const playSound = async (audioFile, initial = false) => {
 
 const App = (audioFile, sec, increments = 1, color = 'blue', time = false)  => {
   playSound(audioFile, true); // play initial sound
+  console.log(chalk[color](`    ${getTimeRemaining(sec)} ${time ? (' ___________________  ' + localTime()) : ''}`));  // initailly log time & check increment to log current time
   let intervalObj = setInterval(() => { // begin interval countdown
     sec -= 1;
     if (sec % increments === 0) console.log(chalk[color](`    ${getTimeRemaining(sec)} ${time ? (' ___________________  ' + localTime()) : ''}`));  // check increment to log current time
     if (sec <= 0) { // check if remaining time reached 0
-      console.log(chalk.bold(`  Times up!`));
       playSound(audioFile);
+      console.log(chalk.bold(`  Times up!`));
       clearInterval(intervalObj);
     }
   }, 1000);
