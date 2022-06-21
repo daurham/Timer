@@ -32,8 +32,12 @@ _Get the best use out of it, use easily in terminal wherever_
 #### _Quick but ineffecient_
 
 1. Clone repo to your command lines initial directory
-2. Open a fresh terminal
-3. run:
+2. Install dependencies
+```
+npm install
+```
+3. Open a fresh terminal
+4. Run:
 ```
 node timer_scripts/Terminal_Timer.js 10 minutes
 ```
@@ -42,15 +46,19 @@ node timer_scripts/Terminal_Timer.js 10 minutes
 
 ---
 ### Option b).
-#### _PREFERRED BUT FOR BASH TERMINAL USERS ONLY_
+#### _RECOMMENDED BUT ONLY FOR BASH TERMINAL USERS_
 
 1. Clone repo wherever you want.
-2. Create and chain an alias at the bottom of your bash startup script (.bashrc or .bash_profile) that:
-    - resets the current directory,
+2. Install dependencies
+```
+npm install
+```
+3. Create an alias at the bottom of your bash startup script (.bashrc or .bash_profile) that:
+    - resets the current directory
         - (cd;)
     - travels to the repo's root directory and
         - (cd path/to/repo;)
-    - uses node to run the script from root:
+    - uses node to run the script from root
         - (node backend_scripts/Terminal_Timer.js)
 ``` bash
 alias timer='cd; cd Desktop/Applications/Timer; node timer_scripts/Terminal_Timer.js'
@@ -59,7 +67,7 @@ alias timer='cd; cd Desktop/Applications/Timer; node timer_scripts/Terminal_Time
 >alias aliasName='[go to initial terminal dir; go to repo dir root; use node to run backend_scripts/Terminal_Timer.js]'
 
 4. Launch a fresh terminal
-5. Run in a similar syntax:
+5. Run a similar syntax:
 ```
 timer 1 hr
 ```
@@ -74,18 +82,17 @@ timer 5 m 1 green true
 ```
 >syntax: aliasName [timeDuration?] [timeType?] [timeIncrement?] [fontColor?] [showLocalTime?]
 
-![](https://media.giphy.com/media/7x7vp9yPVEnZGXWlzv/giphy.gif)
-![](https://media.giphy.com/media/nQAyLJXzeBaANxfyJa/giphy.gif)
-![](https://media.giphy.com/media/t0Ob0tLiWa6cHCHPCU/giphy.gif)
-![](https://media.giphy.com/media/KNNTUcZln6PLh5ntC7/giphy.gif)
-
-
 > Running the "aliasName" defaults to:
 
 ```
 aliasName 10 minutes 1 red false
 ```
 5. Get to work!!
+
+![](https://media.giphy.com/media/7x7vp9yPVEnZGXWlzv/giphy.gif)
+![](https://media.giphy.com/media/nQAyLJXzeBaANxfyJa/giphy.gif)
+![](https://media.giphy.com/media/t0Ob0tLiWa6cHCHPCU/giphy.gif)
+![](https://media.giphy.com/media/KNNTUcZln6PLh5ntC7/giphy.gif)
 
 ---
 ## Playing your own your own sound:
