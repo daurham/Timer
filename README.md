@@ -11,12 +11,10 @@ A simple timer that runs in the terminal. Made with time boxing in mind, but can
 ![Nodemon](https://img.shields.io/badge/nodemon-8AA15A?style=for-the-badge&logo=nodemon&logoColor=gray)
 ![Bash](https://img.shields.io/badge/bash-gray?style=for-the-badge&logo=gnubash&logoColor=white)
 
-</div>
-
 ![](https://media.giphy.com/media/ptAFyxqzfSBs28tDS4/giphy.gif)
 ![](https://media.giphy.com/media/n5HeyjISjmh8Znzi2j/giphy.gif)
 
-
+</div>
 ## Installing Terminal Timer
 (Utility Set up is recommended to get the most out of this application)
 
